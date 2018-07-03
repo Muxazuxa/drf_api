@@ -12,7 +12,7 @@ class BranchesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Branches
-        fields = ('id', 'address', 'latitude', 'longitude')
+        fields = ('address', 'latitude', 'longitude')
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -20,7 +20,8 @@ class CourseSerializer(serializers.ModelSerializer):
     branches = BranchesSerializer(many=True)
 
     class Meta:
-        fields = ('id', 'name', 'description', 'category', 'logo', 'contacts', 'branches')
+        model = Course
+        fields = ('name', 'description', 'category', 'logo', 'contacts', 'branches')
 
     def create(self, validated_data):
         return Course.objects.create(**validated_data)

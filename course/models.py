@@ -2,7 +2,7 @@ from django.db import models
 
 class Course(models.Model):
     name = models.CharField(max_length=20)
-    descriprion = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
     category = models.CharField(max_length=30)
     logo = models.CharField(max_length=1000)
 
