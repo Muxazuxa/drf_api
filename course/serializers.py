@@ -5,7 +5,7 @@ class ContactsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Contacts
-        fields = ('id', 'type', 'value')
+        fields = ('type', 'value')
 
 
 class BranchesSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ('name', 'description', 'category', 'logo', 'contacts', 'branches')
+        fields = ('id', 'name', 'description', 'category', 'logo', 'contacts', 'branches')
 
     def create(self, validated_data):
         return Course.objects.create(**validated_data)
