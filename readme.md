@@ -1,4 +1,4 @@
-This is a Django app built on the 23andMe API and Django 2.0.7 
+This is a Django app built by Jenish  and Django 2.0.7 
 
 Clone the repo: 
 
