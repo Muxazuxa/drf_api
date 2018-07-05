@@ -1,0 +1,66 @@
+List of all the Course   
+
+http://127.0.0.1:8000/course/
+
+GET /course/
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+[
+    {
+        "id": 1,
+        "name": "English Zone",
+        "description": "Миссия English Zone заключается в том, чтобы помоч",
+        "category": "Language courses",
+        "logo": "http://www.answersfrom.com/wp-content/uploads/2011/09/Not-talanted-but-curious.jpg",
+        "contacts": [
+            {
+                "type": "FACEBOOK",
+                "value": "https://www.facebook.com/english.zone.kg/"
+            }
+        ],
+        "branches": [
+            {
+                "address": "Manas 58/ Aini - right next to the Manas universit",
+                "latitude": "42.847971",
+                "longitude": "74.586733"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Deutch Course",
+        "description": "We are Gitler's son",
+        "category": "Fashist Courses",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1024px-Flag_of_Germany.svg.png",
+        "contacts": [
+            {
+                "type": "FACEBOOK",
+                "value": "https://www.facebook.com/deutch.zone.kg/"
+            }
+        ],
+        "branches": [
+            {
+                "address": "Manas 58/ Aini - right next to the Manas universit",
+                "latitude": "42.8586017",
+                "longitude": "74.6068425"
+            }
+        ]
+    }
+]
+
+If you wanna see json formant then go to the link under...
+
+http://127.0.0.1:8000/course/?format=json
+
+You output migth look like this 
+
+[{"id":1,"name":"English Zone","description":"Миссия English Zone заключается в том, чтобы помоч","category":"Language courses","logo":"http://www.answersfrom.com/wp-content/uploads/2011/09/Not-talanted-but-curious.jpg","contacts":[{"type":"FACEBOOK","value":"https://www.facebook.com/english.zone.kg/"}],"branches":[{"address":"Manas 58/ Aini - right next to the Manas universit","latitude":"42.847971","longitude":"74.586733"}]},{"id":2,"name":"Deutch Course","description":"We are Gitler's son","category":"Fashist Courses","logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1024px-Flag_of_Germany.svg.png","contacts":[{"type":"FACEBOOK","value":"https://www.facebook.com/deutch.zone.kg/"}],"branches":[{"address":"Manas 58/ Aini - right next to the Manas universit","latitude":"42.8586017","longitude":"74.6068425"}]}]
+
+You can create the new course with admin preference in link under...
+
+http://127.0.0.1:8000/admin/
+
+
