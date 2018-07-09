@@ -1,29 +1,58 @@
 from django.db import models
 
-class Course(models.Model):
-    name = models.CharField(max_length=20)
-    description = models.CharField(max_length=50)
-    category = models.CharField(max_length=30)
-    logo = models.CharField(max_length=1000)
+CONTACT_TYPES = (
+    (1, 'PHONE'),
+    (2, 'FACEBOOK'),
+    (3, 'EMAIL')
+)
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    imgpath = models.URLField(max_length=200, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.name
 
-class Contacts(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='contacts')
-    type = models.CharField(max_length=50)
-    value = models.CharField(max_length=50)
 
+class Branch(models.Model):
+    latitude = models.CharField(max_length=200)
+    longtitude = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, related_name='branches')
+
+    class Meta:
+        verbose_name = "Branch"
+        verbose_name_plural = "Branches"
+
+
+class Contact(models.Model):
+    type = models.IntegerField(choices=CONTACT_TYPES)
+    value = models.CharField(max_length=200)
+
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, related_name='contacts')
+
+    class Meta:
+        verbose_name = "contact"
 
     def __str__(self):
-        return self.type+' '+self.value
+        return self.value
 
-class Branches(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='branches')
-    address = models.CharField(max_length=50)
-    latitude = models.CharField(max_length=30)
-    longitude = models.CharField(max_length=40)
+
+class Course(models.Model):
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
+
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=250)
+    logo = models.URLField()
+
+    class Meta:
+        default_related_name = "course"
 
     def __str__(self):
-        return self.address
+        return self.name
